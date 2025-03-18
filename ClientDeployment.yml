@@ -15,7 +15,7 @@ spec:
         app: client
     spec:
       containers:
-      - name: accounts
+      - name: client
         image: chedjou03/client:0.0.5
         ports:
         - containerPort: 8080
