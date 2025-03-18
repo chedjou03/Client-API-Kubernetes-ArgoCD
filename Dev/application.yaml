@@ -11,7 +11,7 @@ spec:
     path: Dev  # Path inside the repo where Kubernetes manifests are located
   destination:
     server: https://kubernetes.default.svc  # Kubernetes API (In-cluster)
-    namespace: clientNamespace  # Namespace where the app will be deployed
+    namespace: clientnamespace  # Namespace where the app will be deployed
   syncPolicy:
     automated:
       prune: true  # Automatically remove resources not in Git
