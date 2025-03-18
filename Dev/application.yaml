@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-client-api
+  namespace: argocd  # ArgoCD runs in this namespace
+spec:
+  project: default  # ArgoCD Project Name
+  source:
+    repoURL: https://github.com/chedjou03/Client-API-Kubernetes-ArgoCD.git  # Replace with your Git repo URL
+    targetRevision: main  # Branch or Tag (e.g., 'main' or 'v1.0.0')
+    path: Dev  # Path inside the repo where Kubernetes manifests are located
+  destination:
+    server: https://kubernetes.default.svc  # Kubernetes API (In-cluster)
+    namespace: clientNamespace  # Namespace where the app will be deployed
+  syncPolicy:
+    automated:
+      prune: true  # Automatically remove resources not in Git
+      selfHeal: true  # Automatically sync if drift is detected
+    syncOptions:
+      - CreateNamespace=true  # Ensures the namespace is created if missing
