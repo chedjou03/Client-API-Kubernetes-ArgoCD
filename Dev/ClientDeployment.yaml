@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: client
-        image: chedjou03/client:0.0.5
+        image: chedjou03/client:0.0.7
         ports:
         - containerPort: 8080
